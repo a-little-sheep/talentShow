@@ -1,13 +1,6 @@
 <template>
-  <div>
-    <div class="vux-demo">
-      <img class="logo" src="../assets/vux_logo.png">
-      <h1> </h1>
-    </div>
-    <group title="cell demo">
-      <cell title="VUX" value="cool" is-link></cell>
-    </group>
-    <drawer>
+  <div class="box">
+    <drawer height="100%">
       <div v-transfer-dom>
         <loading v-model="isLoading"></loading>
       </div>
@@ -20,20 +13,20 @@
 
         <tabbar class="vux-demo-tabbar" icon-class="vux-center" slot="bottom">
           <tabbar-item :link="{path:'/'}">
-            <span class="demo-icon-22 vux-demo-tabbar-icon-home" slot="icon">&#xe637;</span>
-            <span slot="label">Home</span>
+            <span class="" slot="icon"></span>
+            <span slot="label">首页</span>
           </tabbar-item>
-          <tabbar-item :link="{path:'/demo'}">
-            <span class="demo-icon-22" slot="icon">&#xe633;</span>
-            <span slot="label"><span>Demos</span></span>
+          <tabbar-item :link="{path:'/classification'}">
+            <span class="" slot="icon"></span>
+            <span slot="label"><span>分类</span></span>
           </tabbar-item>
-          <tabbar-item :link="{path:'/project/donate'}">
-            <span class="demo-icon-22" slot="icon">&#xe630;</span>
-            <span slot="label">Donate</span>
+          <tabbar-item :link="{path:'/help'}">
+            <span class="" slot="icon"></span>
+            <span slot="label">作业</span>
           </tabbar-item>
-          <tabbar-item :link="{path:'/project/donate'}">
-            <span class="demo-icon-22" slot="icon">&#xe630;</span>
-            <span slot="label">Donate</span>
+          <tabbar-item :link="{path:'/my'}">
+            <span class="" slot="icon"></span>
+            <span slot="label">我的</span>
           </tabbar-item>
         </tabbar>
 
@@ -67,20 +60,11 @@ export default {
   },
   data () {
     return {
-      msg: 'Hello World!',
       isLoading: false
     }
   }
 }
-
 </script>
-
 <style>
-.vux-demo {
-  text-align: center;
-}
-.logo {
-  width: 100px;
-  height: 100px
-}
+
 </style>

@@ -16,4 +16,5 @@ export default {
 body {
   background-color: #fbf9fe;
 }
+html,body,#app,.box{width:100%;height:100%;}
 </style>
