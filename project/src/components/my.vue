@@ -5,19 +5,7 @@
 </template>
 
 <script>
-import My from './my'
 
-export default {
-  components: {
-      My
-  },
-  data () {
-    return {
-      msg: 'Hello World!',
-      isLoading: false
-    }
-  }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

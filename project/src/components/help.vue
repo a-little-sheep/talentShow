@@ -5,19 +5,6 @@
 </template>
 
 <script>
-import Help from './help'
-
-export default {
-  components: {
-    Help
-  },
-  data () {
-    return {
-      msg: 'Hello World!',
-      isLoading: false
-    }
-  }
-}
 
 </script>
 <style>

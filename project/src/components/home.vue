@@ -1,7 +1,5 @@
 <template>
-  <div class="box">
-    <div>分类</div>
-  </div>
+   <div>首页123</div>
 </template>
 
 <script>

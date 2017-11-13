@@ -1,21 +1,36 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import FastClick from 'fastclick'
-import VueRouter from 'vue-router'
 import App from './App'
-import Home from './components/Index'
+
+import VueRouter from 'vue-router'
+
+import Home from './components/home.vue'
+import Classification from './components/classification.vue'
+import Help from './components/help.vue'
+import My from './components/my.vue'
 
 Vue.use(VueRouter)
+
+require('es6-promise').polyfill()
 
 const routes = [{
   path: '/',
   component: Home
+}, {
+  path: '/classification',
+  component: Classification
+}, {
+  path: '/help',
+  component: Help
+}, {
+  path: '/my',
+  component: My
 }]
 
 const router = new VueRouter({
   routes
 })
+Vue.use(router)
 
 FastClick.attach(document.body)
 
