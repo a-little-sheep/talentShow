@@ -7,6 +7,6 @@
 <script>
 
 </script>
-<style>
-
+<style scoped>
+.box{background:#ccc;}
 </style>

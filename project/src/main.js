@@ -31,7 +31,9 @@ const router = new VueRouter({
   routes
 })
 Vue.use(router)
-
+router.beforeEach((to, from, next) => {
+  next()
+})
 FastClick.attach(document.body)
 
 Vue.config.productionTip = false
@@ -41,3 +43,4 @@ new Vue({
   router,
   render: h => h(App)
 }).$mount('#app-box')
+
