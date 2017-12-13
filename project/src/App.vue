@@ -61,8 +61,8 @@
     watch: {
       '$route' (to, from) {
         // 对路由变化作出响应...
-        console.log(to.path)
-        console.log(from.path)
+        console.log(to.path);
+        console.log(from.path);
       }
     },
     data () {
