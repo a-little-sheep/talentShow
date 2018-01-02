@@ -30,8 +30,9 @@ const routes = [{
 const router = new VueRouter({
   routes
 })
-Vue.use(router)
 router.beforeEach((to, from, next) => {
+  console.log(to)
+  console.log(from)
   next()
 })
 FastClick.attach(document.body)
