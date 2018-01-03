@@ -7,11 +7,11 @@
       <!-- main content -->
       <view-box>
         <!--内容模块盒子 -->
-        <transition>
+        <transition :name="'box-'+(direction ? 'in' : 'out')">
           <router-view class="router-view"></router-view>
         </transition>
 
-        <tabbar class="vux-demo-tabbar" icon-class="vux-center" slot="bottom">
+        <tabbar icon-class="vux-center" slot="bottom">
           <tabbar-item :link="{path:'/'}" :selected="$route.path === '/'">
             <span class="iconfont icon-shouye" slot="icon"></span>
             <span slot="label">首页</span>
@@ -61,13 +61,20 @@
     watch: {
       '$route' (to, from) {
         // 对路由变化作出响应...
-        console.log(to.path)
-        console.log(from.path)
+        let routerArr = ['/', '/classification', '/help', '/my']
+        let toPath = routerArr.indexOf(to.path)
+        let fromPath = routerArr.indexOf(from.path)
+        if (toPath >= fromPath) {
+          this.direction = true
+        } else {
+          this.direction = false
+        }
       }
     },
     data () {
       return {
-        isLoading: false
+        isLoading: false,
+        direction: true
       }
     }
   }
@@ -83,4 +90,32 @@ body {
 }
 html,body,#app,.box{width:100%;height:100%;}
 .iconfont{font-size:22px;}
+.box-out-enter-active,
+.box-out-leave-active,
+.box-in-enter-active,
+.box-in-leave-active {
+  will-change: transform;
+  transition: all 500ms;
+  height: 100%;
+  position: absolute;
+  top:0;
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+.box-out-enter {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+.box-out-leave-active {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+.box-in-enter {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+.box-in-leave-active {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
 </style>
