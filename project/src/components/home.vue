@@ -1,28 +1,30 @@
 <template>
    <div>
+       <search class="search" @on-submit="onSubmit" :auto-fixed="autoFixed" @on-focus="onFocus" @on-cancel="onCancel"></search>
        <swiper :list="demo01_list" v-model="demo01_index" @on-index-change="demo01_onIndexChange" auto loop></swiper>
-       <grid>
-           <grid-item :label="i" v-for="i in 4" :key="i">
-               <img slot="icon" src="https://static.vux.li/demo/1.jpg">
-           </grid-item>
-       </grid>
+       <flexbox class="radio vux-1px-b">
+           <flexbox-item :span="1" class="vux-center"><span class="radio_icon iconfont icon-horn"></span></flexbox-item>
+           <flexbox-item :span="11"><span class="radio_info">{{nav_text}}</span></flexbox-item>
+       </flexbox>
+       <!--<grid>-->
+           <!--<grid-item :label="i" v-for="i in 4" :key="i">-->
+               <!--<img slot="icon" src="https://static.vux.li/demo/1.jpg">-->
+           <!--</grid-item>-->
+       <!--</grid>-->
    </div>
 </template>
 
 <script>
-    import { Swiper,Grid,GridItem,FormPreview } from 'vux'
+    import { Swiper,Grid,GridItem,FormPreview,Flexbox, FlexboxItem,Search } from 'vux'
     const baseList = [{
         url: 'javascript:;',
         img: 'https://static.vux.li/demo/1.jpg',
-        title: '送你一朵花'
     }, {
         url: 'javascript:;',
         img: 'https://static.vux.li/demo/2.jpg',
-        title: '送你一辆车'
     }, {
         url: 'javascript:;',
         img: 'https://static.vux.li/demo/3.jpg',
-        title: '送你一次旅行',
     }]
 
     export default {
@@ -30,23 +32,36 @@
             Swiper,
             FormPreview,
             Grid,
-            GridItem
+            GridItem,
+            Flexbox,
+            FlexboxItem,
+            Search
         },
         methods: {
             demo01_onIndexChange (index) {
                 this.demo01_index = index
-                console.log()
+            },
+            onSubmit (val) {
+                window.alert('on submit' + val)
+            },
+            onCancel () {
+                console.log('on cancel')
+            },
+            onFocus () {
+                console.log('on focus')
             }
         },
         data() {
             return {
                 demo01_list: baseList,
-                demo01_index: 0
+                demo01_index: 0,
+                nav_text:'这是一个消息显示区',
+                autoFixed: true
             }
         }
     }
 </script>
-<style scoped>
+<style>
 .swiper-demo-img img {
    width: 100%;
 }
@@ -56,5 +71,12 @@
     color: #666;
 }
 
+.radio{width:100%;height:44px;}
+.vux-center{text-align:center;}
+.radio_icon{color:#323232;}
+.radio_info{font-size:14px;color:#999;}
+.search{position:fixed !important;top:0;z-index:999;}
+.search .weui-search-bar{background-color:rgba(255,255,255,0);}
+.search .weui-search-bar:after{height:0;border-bottom:0;}
 </style>
 
