@@ -59,10 +59,12 @@
       Actionsheet
     },
     watch: {
-      '$route' (to, from) {
-        // 对路由变化作出响应...
-
-      }
+        path (path) {
+          if (path === '/component/demo') {
+            this.$router.replace('/demo')
+            return
+          }
+        }
     },
     data () {
       return {

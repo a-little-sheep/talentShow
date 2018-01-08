@@ -1,6 +1,10 @@
 <template>
    <div>
-       <search class="search" @on-submit="onSubmit" :auto-fixed="autoFixed" @on-focus="onFocus" @on-cancel="onCancel"></search>
+       <group>
+           <cell-box link="/home/search">
+               搜索
+           </cell-box>
+       </group>
        <swiper :list="demo01_list" v-model="demo01_index" @on-index-change="demo01_onIndexChange" auto loop></swiper>
        <flexbox class="radio vux-1px-b">
            <flexbox-item :span="1" class="vux-center"><span class="radio_icon iconfont icon-horn"></span></flexbox-item>
@@ -15,7 +19,7 @@
 </template>
 
 <script>
-    import { Swiper,Grid,GridItem,FormPreview,Flexbox, FlexboxItem,Search } from 'vux'
+    import { Swiper,Grid,GridItem,FormPreview,Flexbox, FlexboxItem,Search,Group,CellBox } from 'vux'
     const baseList = [{
         url: 'javascript:;',
         img: 'https://static.vux.li/demo/1.jpg',
@@ -35,7 +39,9 @@
             GridItem,
             Flexbox,
             FlexboxItem,
-            Search
+            Search,
+            Group,
+            CellBox
         },
         methods: {
             demo01_onIndexChange (index) {
@@ -62,6 +68,7 @@
     }
 </script>
 <style>
+*{ touch-action: none; }
 .swiper-demo-img img {
    width: 100%;
 }
@@ -77,6 +84,10 @@
 .radio_info{font-size:14px;color:#999;}
 .search{position:fixed !important;top:0;z-index:999;}
 .search .weui-search-bar{background-color:rgba(255,255,255,0);}
-.search .weui-search-bar:after{height:0;border-bottom:0;}
+/*.search .weui-search-bar:after{height:0;border-bottom:0;}*/
+/*.weui-cell_access .weui-cell__ft{padding-right:0 !important;}*/
+/*.weui-cell__ft:after{display:none !important;}*/
+/*.weui-cell__hd{display:none;}*/
+/*.vux-cell-primary{display:none !important;}*/
 </style>
 
